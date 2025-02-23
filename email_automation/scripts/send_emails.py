@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
+import html
 
 import pandas as pd
 import gspread
@@ -37,7 +38,7 @@ if not SENDER_NAME:
 logging.info(f"Starting email automation with sender: {SENDER_EMAIL}")
 
 # Send start notification
-send_telegram_message(f"🚀 <b>Email Sending Started</b>\n\nSender: {SENDER_NAME} <{SENDER_EMAIL}>")
+send_telegram_message(f"🚀 <b>Email Sending Started</b>\n\nSender: {SENDER_NAME} ({html.escape(SENDER_EMAIL)})")
 
 def get_gmail_service():
     """Initialize and return Gmail API service using service account."""
