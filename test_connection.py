@@ -12,7 +12,7 @@ scopes = [
 try:
     # Load credentials
     credentials = service_account.Credentials.from_service_account_file(
-        'email_automation/config/credentials.json',
+        'email_automation/config/serviceAccount.json',
         scopes=scopes
     )
     
