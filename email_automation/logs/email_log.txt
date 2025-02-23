@@ -80,3 +80,72 @@
 2025-02-23 14:39:48,101 - INFO - Processing 1 records
 2025-02-23 14:39:48,392 - INFO - Email sent successfully. Message ID: 195334004514d6c7
 2025-02-23 14:39:51,188 - INFO - Sent first email to wmastover@gmail.com
+2025-02-23 16:03:29,714 - INFO - Starting email automation with sender: will@trymeon.co.uk
+2025-02-23 16:03:29,883 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-02-23 16:03:30,166 - ERROR - Error setting up Gmail service: ('unauthorized_client: Client is unauthorized to retrieve access tokens using this method, or client not authorized for any of the scopes requested.', {'error': 'unauthorized_client', 'error_description': 'Client is unauthorized to retrieve access tokens using this method, or client not authorized for any of the scopes requested.'})
+2025-02-23 16:03:30,166 - ERROR - Failed to initialize Gmail service
+2025-02-23 16:05:24,872 - INFO - Starting email automation with sender: will@trymeon.co.uk
+2025-02-23 16:05:25,036 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-02-23 16:05:25,299 - ERROR - Error setting up Gmail service: ('unauthorized_client: Client is unauthorized to retrieve access tokens using this method, or client not authorized for any of the scopes requested.', {'error': 'unauthorized_client', 'error_description': 'Client is unauthorized to retrieve access tokens using this method, or client not authorized for any of the scopes requested.'})
+2025-02-23 16:05:25,299 - ERROR - Failed to initialize Gmail service
+2025-02-23 16:05:56,953 - INFO - Starting email automation with sender: will@trymeon.co.uk
+2025-02-23 16:05:57,263 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-02-23 16:05:57,509 - ERROR - Error setting up Gmail service: ('unauthorized_client: Client is unauthorized to retrieve access tokens using this method, or client not authorized for any of the scopes requested.', {'error': 'unauthorized_client', 'error_description': 'Client is unauthorized to retrieve access tokens using this method, or client not authorized for any of the scopes requested.'})
+2025-02-23 16:05:57,509 - ERROR - Failed to initialize Gmail service
+2025-02-23 16:18:25,968 - INFO - Starting email automation with sender: will@trymeon.co.uk
+2025-02-23 16:18:26,217 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-02-23 16:18:26,472 - ERROR - Error setting up Gmail service: ('unauthorized_client: Client is unauthorized to retrieve access tokens using this method, or client not authorized for any of the scopes requested.', {'error': 'unauthorized_client', 'error_description': 'Client is unauthorized to retrieve access tokens using this method, or client not authorized for any of the scopes requested.'})
+2025-02-23 16:18:26,472 - ERROR - Failed to initialize Gmail service
+2025-02-23 16:26:54,077 - INFO - Starting email automation with sender: will@trymeon.co.uk
+2025-02-23 16:26:54,424 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-02-23 16:26:55,043 - INFO - Successfully connected to Gmail API as: will@trymeon.co.uk
+2025-02-23 16:26:55,048 - INFO - Successfully connected to Google Sheets API
+2025-02-23 16:26:57,126 - INFO - Processing 1 records
+2025-02-23 16:26:57,526 - INFO - Email sent successfully. Message ID: 19533a21eefee2f0
+2025-02-23 16:26:58,886 - INFO - Sent first email to wmastover@gmail.com
+2025-02-23 16:26:58,887 - ERROR - Campaign processing error: name 'EMAIL_SEND_DELAY' is not defined
+2025-02-23 16:27:20,768 - INFO - Starting email automation with sender: will@trymeon.co.uk
+2025-02-23 16:27:21,016 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-02-23 16:27:21,567 - INFO - Successfully connected to Gmail API as: will@trymeon.co.uk
+2025-02-23 16:27:21,572 - INFO - Successfully connected to Google Sheets API
+2025-02-23 16:27:23,262 - INFO - Processing 1 records
+2025-02-23 16:32:01,065 - INFO - Starting email automation with sender: will@trymeon.co.uk
+2025-02-23 16:32:01,267 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-02-23 16:32:01,800 - INFO - Successfully connected to Gmail API as: will@trymeon.co.uk
+2025-02-23 16:32:01,804 - INFO - Successfully connected to Google Sheets API
+2025-02-23 16:32:03,548 - INFO - Processing 1 records
+2025-02-23 16:32:04,061 - INFO - Email sent successfully. Message ID: 19533a6cbf0b1922
+2025-02-23 16:32:05,262 - INFO - Sent first email to wmastover@gmail.com
+2025-02-23 16:32:05,262 - INFO - Waiting 2 minutes before sending next email...
+2025-02-23 16:34:27,811 - INFO - Starting email automation with sender: will@trymeon.co.uk
+2025-02-23 16:34:28,053 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-02-23 16:34:28,632 - INFO - Successfully connected to Gmail API as: will@trymeon.co.uk
+2025-02-23 16:34:28,637 - INFO - Successfully connected to Google Sheets API
+2025-02-23 16:34:30,211 - INFO - Processing 1 records
+2025-02-23 16:34:30,628 - INFO - Email sent successfully. Message ID: 19533a908f0a6cb1
+2025-02-23 16:34:31,440 - INFO - Sent first email to wmastover@gmail.com
+2025-02-23 16:34:31,440 - INFO - Waiting 2 minutes before sending next email...
+2025-02-23 16:35:59,087 - INFO - Starting email automation with sender: will@trymeon.co.uk
+2025-02-23 16:35:59,363 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-02-23 16:35:59,917 - INFO - Successfully connected to Gmail API as: will@trymeon.co.uk
+2025-02-23 16:35:59,924 - INFO - Successfully connected to Google Sheets API
+2025-02-23 16:36:02,066 - INFO - Processing 1 records
+2025-02-23 16:36:02,348 - INFO - Email sent successfully. Message ID: 19533aa6f7b3618f
+2025-02-23 16:36:03,261 - INFO - Sent first email to wmastover@gmail.com
+2025-02-23 16:36:03,261 - INFO - Waiting 2 minutes before sending next email...
+2025-02-23 17:49:03,094 - INFO - Starting email automation with sender: will@trymeon.co.uk
+2025-02-23 17:49:03,346 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-02-23 17:49:03,939 - INFO - Successfully connected to Gmail API as: will@trymeon.co.uk
+2025-02-23 17:49:03,947 - INFO - Successfully connected to Google Sheets API
+2025-02-23 17:49:05,781 - INFO - Processing 6 records
+2025-02-23 17:49:06,192 - INFO - Email sent successfully. Message ID: 19533ed534e3dbc8
+2025-02-23 17:49:08,535 - INFO - Sent first email to wmastover@gmail.com
+2025-02-23 17:49:08,535 - INFO - Waiting 2 minutes before sending next email...
+2025-02-23 17:59:57,596 - INFO - Starting email automation with sender: will@trymeon.co.uk
+2025-02-23 17:59:57,874 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-02-23 17:59:58,412 - INFO - Successfully connected to Gmail API as: will@trymeon.co.uk
+2025-02-23 17:59:58,418 - INFO - Successfully connected to Google Sheets API
+2025-02-23 18:00:01,468 - INFO - Processing 6 records
+2025-02-23 18:00:01,903 - INFO - Email sent successfully. Message ID: 19533f753f372696
+2025-02-23 18:00:03,726 - INFO - Sent first email to wmastover@gmail.com
+2025-02-23 18:00:03,727 - INFO - Waiting 2 minutes before sending next email...

@@ -1,14 +1,15 @@
 import gspread
 from google.oauth2 import service_account
+from email_automation.config.config import *
 
 # Initialize the Sheets client
 credentials = service_account.Credentials.from_service_account_file(
-    'email_automation/config/credentials.json',
-    scopes=['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+    CREDENTIALS_FILE,
+    scopes=SHEETS_SCOPES
 )
 
 gc = gspread.authorize(credentials)
-sheet = gc.open('Email Outreach Backend').worksheet('Sheet1')
+sheet = gc.open(SPREADSHEET_NAME).worksheet(WORKSHEET_NAME)
 
 # Get current headers
 headers = sheet.row_values(1)

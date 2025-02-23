@@ -27,6 +27,8 @@ def send_telegram_message(message):
         })
         response.raise_for_status()
         return True
+    except requests.exceptions.HTTPError as http_err:
+        print(f"HTTP error occurred: {http_err} - Response: {response.text}")
     except Exception as e:
         print(f"Error sending Telegram message: {str(e)}")
-        return False 
+    return False 

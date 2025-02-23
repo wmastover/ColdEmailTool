@@ -26,6 +26,9 @@ SENDER_NAME = os.getenv('SENDER_NAME')
 FOLLOWUP_1_DELAY = int(os.getenv('FOLLOWUP_1_DELAY', '1'))
 FOLLOWUP_2_DELAY = int(os.getenv('FOLLOWUP_2_DELAY', '1'))
 
+# Delay between sending emails (in minutes)
+EMAIL_SEND_DELAY = int(os.getenv('EMAIL_SEND_DELAY', '2'))
+
 # Logging configuration
 LOG_FILE = LOG_DIR / "email_log.txt"
 ERROR_LOG_FILE = LOG_DIR / "error_log.txt"

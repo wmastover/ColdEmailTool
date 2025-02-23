@@ -38,7 +38,7 @@ pip install -r requirements.txt
    - Create a new project in Google Cloud Console
    - Enable Gmail API and Google Sheets API
    - Create service account credentials
-   - Download credentials as `serviceAccount.json` and place in `email_automation/config/` directory
+   - Download credentials as `credentials.json` and place in `email_automation/config/` directory
 
 4. Set up Telegram Bot:
    - Create a new bot using BotFather in Telegram
