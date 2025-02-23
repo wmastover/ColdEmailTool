@@ -16,6 +16,7 @@ from googleapiclient.errors import HttpError
 from dotenv import load_dotenv
 
 from ..config.config import *
+from ..utils.telegram_notifier import send_telegram_message
 
 # Load environment variables
 load_dotenv()
@@ -34,6 +35,9 @@ if not SENDER_NAME:
     raise ValueError("SENDER_NAME environment variable is not set")
 
 logging.info(f"Starting email automation with sender: {SENDER_EMAIL}")
+
+# Send start notification
+send_telegram_message(f"🚀 <b>Email Sending Started</b>\n\nSender: {SENDER_NAME} <{SENDER_EMAIL}>")
 
 def get_gmail_service():
     """Initialize and return Gmail API service using service account."""
@@ -223,6 +227,9 @@ def process_campaign():
     except Exception as e:
         logging.error(f"Campaign processing error: {str(e)}")
         raise  # Re-raise the exception for debugging
+
+    # Send completion notification
+    send_telegram_message(f"✅ <b>Email Sending Completed</b>\n\nProcessed {len(df)} records")
 
 if __name__ == "__main__":
     process_campaign() 
