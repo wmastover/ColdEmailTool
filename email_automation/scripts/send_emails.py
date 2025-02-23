@@ -34,6 +34,14 @@ if not SENDER_EMAIL:
     raise ValueError("SENDER_EMAIL environment variable is not set")
 if not SENDER_NAME:
     raise ValueError("SENDER_NAME environment variable is not set")
+if not EMAIL_SEND_DELAY:
+    raise ValueError("EMAIL_SEND_DELAY environment variable is not set")
+try:
+    EMAIL_SEND_DELAY = int(EMAIL_SEND_DELAY)
+except ValueError:
+    raise ValueError("EMAIL_SEND_DELAY must be a valid integer")
+if EMAIL_SEND_DELAY < 0:
+    raise ValueError("EMAIL_SEND_DELAY must be a positive number")
 
 logging.info(f"Starting email automation with sender: {SENDER_EMAIL}")
 
@@ -96,7 +104,7 @@ def create_email_message(to, subject, body, thread_id=None):
     message['from'] = f"{SENDER_NAME} <{SENDER_EMAIL}>"
     message['subject'] = subject
     
-    msg = MIMEText(body)
+    msg = MIMEText(body, 'plain', 'utf-8')
     message.attach(msg)
     
     raw = base64.urlsafe_b64encode(message.as_bytes()).decode()
