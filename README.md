@@ -1,12 +1,13 @@
 # Email Automation System
 
-An automated email campaign system that uses Google Sheets as a backend and Gmail API for sending emails and tracking responses. Features Telegram notifications for real-time reply alerts.
+An automated email campaign system that uses Google Sheets as a backend and Gmail API for sending emails and tracking responses. Features Telegram notifications for real-time reply alerts and weekly status reports.
 
 ## Features
 
 - Automated email campaign management using Google Sheets
 - Three-stage email sequence with customizable templates
 - Automatic reply detection with real-time Telegram notifications
+- Weekly status reports via Telegram
 - Direct Gmail links in notifications for quick access to replies
 - Campaign status tracking and updates
 - Detailed logging of all operations
@@ -82,6 +83,12 @@ TELEGRAM_CHAT_ID=your_chat_id_here
      - `email_2.txt`: First follow-up
      - `email_3.txt`: Final follow-up
 
+8. Schedule Weekly Status Reports:
+   - Set up a cron job to run the weekly report script every Friday at 5 PM:
+   ```bash
+   0 17 * * 5 cd /path/to/email-automation && python -m email_automation.scripts.weekly_report
+   ```
+
 ## Usage
 
 1. Add test email to campaign:
@@ -126,6 +133,13 @@ When a reply is received, you'll get a Telegram notification containing:
 - Campaign status update
 - Direct link to view the email in Gmail
 
+## Weekly Status Reports
+
+Every Friday, you'll receive a Telegram message with:
+- Total number of contacts
+- Total number of replies
+- Conversion rate (replies/contacts)
+
 ## Project Structure
 
 ```
@@ -135,7 +149,8 @@ email_automation/
 │   └── serviceAccount.json
 ├── scripts/
 │   ├── send_emails.py
-│   └── detect_replies.py
+│   ├── detect_replies.py
+│   └── weekly_report.py
 ├── templates/
 │   ├── email_1.txt
 │   ├── email_2.txt
