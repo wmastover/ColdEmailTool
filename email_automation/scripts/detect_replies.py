@@ -6,8 +6,10 @@ import gspread
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from dotenv import load_dotenv
+import html
 
 from ..config.config import *
+from ..utils.telegram_notifier import send_telegram_message
 
 # Load environment variables
 load_dotenv()
@@ -51,23 +53,25 @@ def get_email_address_from_message(service, message_id):
             userId='me',
             id=message_id,
             format='metadata',
-            metadataHeaders=['From']
+            metadataHeaders=['From', 'Subject']
         ).execute()
         
         headers = message.get('payload', {}).get('headers', [])
         from_header = next((h for h in headers if h['name'] == 'From'), None)
+        subject_header = next((h for h in headers if h['name'] == 'Subject'), None)
         
-        if from_header:
-            from_value = from_header['value']
-            # Extract email address from "Name <email@domain.com>" format
-            if '<' in from_value and '>' in from_value:
-                return from_value[from_value.find('<')+1:from_value.find('>')]
-            return from_value
+        from_value = from_header['value'] if from_header else 'Unknown Sender'
+        subject = subject_header['value'] if subject_header else 'No Subject'
         
-        return None
+        # Extract email address from "Name <email@domain.com>" format
+        email = from_value
+        if '<' in from_value and '>' in from_value:
+            email = from_value[from_value.find('<')+1:from_value.find('>')]
+            
+        return email, from_value, subject
     except Exception as e:
-        logging.error(f"Error getting email address from message {message_id}: {str(e)}")
-        return None
+        logging.error(f"Error getting email details from message {message_id}: {str(e)}")
+        return None, None, None
 
 def check_for_replies():
     """Check Gmail inbox for replies from campaign recipients."""
@@ -105,17 +109,32 @@ def check_for_replies():
         messages = results.get('messages', [])
         
         for message in messages:
-            sender_email = get_email_address_from_message(gmail_service, message['id'])
+            email, sender_name, subject = get_email_address_from_message(gmail_service, message['id'])
             
-            if sender_email in active_emails:
+            if email in active_emails:
                 # Update campaign status
-                cell = worksheet.find(sender_email)
+                cell = worksheet.find(email)
                 if cell:
                     worksheet.update_cell(cell.row, 5, 'Reply Received')
-                    logging.info(f"Reply received from {sender_email}")
+                    logging.info(f"Reply received from {email}")
+                    
+                    # Create Gmail link - escape special characters
+                    gmail_link = f"https://mail.google.com/mail/u/0/#inbox/{html.escape(message['id'])}"
+                    
+                    # Send Telegram notification with escaped values
+                    notification = (
+                        f"🔔 <b>New Reply Received!</b>\n\n"
+                        f"From: {html.escape(sender_name)}\n"
+                        f"Subject: {html.escape(subject)}\n"
+                        f"Status: Campaign status updated to 'Reply Received'\n\n"
+                        f"<a href='{gmail_link}'>View Email in Gmail</a>"
+                    )
+                    send_telegram_message(notification)
     
     except Exception as e:
-        logging.error(f"Error checking for replies: {str(e)}")
+        error_msg = f"Error checking for replies: {str(e)}"
+        logging.error(error_msg)
+        send_telegram_message(f"⚠️ <b>Error in Reply Detection</b>\n\n{html.escape(error_msg)}")
 
 if __name__ == "__main__":
     check_for_replies() 

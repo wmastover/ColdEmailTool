@@ -37,4 +37,8 @@ email_automation/logs/
 # Credentials and Environment Variables
 .env
 email_automation/config/credentials.json
-email_automation/config/token.json 
+email_automation/config/serviceAccount.json
+email_automation/config/token.json
+**/credentials.json
+**/serviceAccount.json
+**/token.json 
